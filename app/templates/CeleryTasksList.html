@@ -1,0 +1,27 @@
+{% extends "appbuilder/base.html" %}
+{% block content %}
+
+
+
+<div>
+    <table width="500" id="customers">
+<tr>
+    <th>jobid</th>
+    <th>jobname</th>
+    <th>taskid</th>
+
+  </tr>
+{% for ind,row in data.iterrows() %}
+    <tr>
+        <td>{{row["jobid"]}}</td>
+        <td>{{row["jobname"]}}</td>
+         <td>{{row["taskid"]}}</td>
+        <td> <a href='/killcelerytaskbyid/{{row["taskid"]}}'>stop</a></td>
+
+
+    </tr>
+{% endfor %}
+</table>
+
+</div>
+{% endblock %}
